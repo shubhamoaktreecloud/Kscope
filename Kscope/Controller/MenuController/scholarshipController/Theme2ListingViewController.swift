@@ -473,13 +473,26 @@ class Theme2ListingViewController: UIViewController , UICollectionViewDelegate, 
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if collectionView == self.cvListing {
-            return CGSize(width: cvListing.frame.width - 8, height: 76)
-        }else if collectionView == self.cvCategary {
-            return CGSize(width: cvCategary.frame.width / 4, height: 75)
-        }else {
-            return CGSize(width: cvCategary.frame.width / 4, height: 75)
+        
+        if (UIDevice.current.userInterfaceIdiom == .pad){
+            if collectionView == self.cvListing {
+                return CGSize(width: cvListing.frame.width - 8, height: 110)
+            }else if collectionView == self.cvCategary {
+                return CGSize(width: cvCategary.frame.width / 4, height: 110)
+            }else {
+                return CGSize(width: cvCategary.frame.width / 4, height: 110)
+            }
+        }else
+        {
+            if collectionView == self.cvListing {
+                return CGSize(width: cvListing.frame.width - 8, height: 76)
+            }else if collectionView == self.cvCategary {
+                return CGSize(width: cvCategary.frame.width / 4, height: 75)
+            }else {
+                return CGSize(width: cvCategary.frame.width / 4, height: 75)
+            }
         }
+                
     }
     
     //MARK:-

@@ -47,8 +47,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CZK-AA-w6w">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="56"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KuV-2r-fbS" customClass="ThemeLabel">
-                            <rect key="frame" x="120.5" y="17.5" width="79" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OVERVIEW" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KuV-2r-fbS" customClass="ThemeLabel">
+                            <rect key="frame" x="114" y="17.5" width="92.5" height="21"/>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -85,7 +85,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="npl-co-Ceh">
-                            <rect key="frame" x="273" y="8" width="40" height="40"/>
+                            <rect key="frame" x="280" y="8" width="33" height="40"/>
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <inset key="imageEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
                             <state key="normal" image="icon-globe"/>
@@ -94,7 +94,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i5H-9i-lLD">
-                            <rect key="frame" x="228" y="8" width="40" height="40"/>
+                            <rect key="frame" x="235" y="8" width="40" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="40" id="RGd-Hv-mop"/>
                             </constraints>
@@ -343,11 +343,11 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7g8-8K-euY">
-                                    <rect key="frame" x="16" y="300" width="288" height="174.5"/>
+                                    <rect key="frame" x="16" y="300" width="288" height="173"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Applicants" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fzR-zN-6a0">
-                                            <rect key="frame" x="16" y="16" width="256" height="21.5"/>
-                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Applicants" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fzR-zN-6a0">
+                                            <rect key="frame" x="16" y="16" width="256" height="20"/>
+                                            <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
                                             <color key="textColor" red="0.0" green="0.4549019608" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                             <userDefinedRuntimeAttributes>
@@ -357,14 +357,14 @@
                                             </userDefinedRuntimeAttributes>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="thP-X4-vq1">
-                                            <rect key="frame" x="16" y="45.5" width="256" height="40.5"/>
+                                            <rect key="frame" x="16" y="44" width="256" height="40.5"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Aston Cona" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NtE-ry-9NF">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Aston Cona" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NtE-ry-9NF">
                                                     <rect key="frame" x="8" y="0.0" width="240" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="SC1-Fb-GBh"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="type">
@@ -395,14 +395,14 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZkB-9c-dlt">
-                                            <rect key="frame" x="16" y="86" width="256" height="40.5"/>
+                                            <rect key="frame" x="16" y="84.5" width="256" height="40.5"/>
                                             <subviews>
                                                 <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Male" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oyE-0Z-dUf">
-                                                    <rect key="frame" x="8" y="0.0" width="31" height="40"/>
+                                                    <rect key="frame" x="8" y="0.0" width="35" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="RGP-Fy-MFd"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="type">
@@ -442,14 +442,14 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6MM-bm-A2e">
-                                            <rect key="frame" x="16" y="126.5" width="256" height="40"/>
+                                            <rect key="frame" x="16" y="125" width="256" height="40"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="South paul,Les vagas Street 341554" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Ub-aA-1U0">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="South paul,Les vagas Street 341554" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Ub-aA-1U0">
                                                     <rect key="frame" x="8" y="0.0" width="240" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="kdc-Em-ASm"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="type">
@@ -485,7 +485,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pFI-3g-LiX">
-                                    <rect key="frame" x="16" y="490.5" width="288" height="112.5"/>
+                                    <rect key="frame" x="16" y="489" width="288" height="112.5"/>
                                     <subviews>
                                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contacts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BzC-re-xAX" customClass="uibutton">
                                             <rect key="frame" x="16" y="16" width="256" height="0.0"/>
@@ -498,9 +498,9 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MYf-k1-wZc">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MYf-k1-wZc">
                                             <rect key="frame" x="16" y="16" width="256" height="0.0"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
                                             <state key="normal" title="View Applicants">
                                                 <color key="titleColor" red="0.0" green="0.4549019608" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
@@ -513,7 +513,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="5Ed-YJ-iYG"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="type">
@@ -551,7 +551,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="EdE-7G-Ttf"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="type">
@@ -647,7 +647,7 @@
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <view hidden="YES" clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oij-XO-y8y">
-                    <rect key="frame" x="24" y="149" width="272" height="390.5"/>
+                    <rect key="frame" x="24" y="179.5" width="272" height="329.5"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SUCCESS!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i9j-qS-bdE">
                             <rect key="frame" x="8" y="56" width="256" height="31.5"/>
@@ -683,14 +683,14 @@
                                 </constraint>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum is Simply Dummy text of the printing  and typsetting industry." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6e-wU-Wdx">
-                            <rect key="frame" x="8" y="239.5" width="256" height="61"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6e-wU-Wdx">
+                            <rect key="frame" x="8" y="239.5" width="256" height="0.0"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ASl-x1-Td7">
-                            <rect key="frame" x="61" y="324.5" width="150" height="50"/>
+                            <rect key="frame" x="61" y="263.5" width="150" height="50"/>
                             <color key="backgroundColor" red="1" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="SpZ-q5-3hl">
@@ -738,7 +738,7 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.0" green="0.4549019608" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="CZK-AA-w6w" secondAttribute="trailing" id="6dK-eI-Hfh"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="rTq-DK-xx2" secondAttribute="trailing" id="7p6-aE-iOw"/>
@@ -768,7 +768,7 @@
     </objects>
     <designables>
         <designable name="KuV-2r-fbS">
-            <size key="intrinsicContentSize" width="79" height="21.5"/>
+            <size key="intrinsicContentSize" width="92.5" height="21.5"/>
         </designable>
         <designable name="pp4-hw-kkn">
             <size key="intrinsicContentSize" width="64" height="14.5"/>

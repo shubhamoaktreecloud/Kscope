@@ -238,13 +238,27 @@ class ApplicantController: UIViewController , UICollectionViewDelegate, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if collectionView == self.cvListing {
-            return CGSize(width: cvListing.frame.width - 8, height: 60)
-        }else if collectionView == self.cvCategary {
-            return CGSize(width: cvCategary.frame.width / 4, height: 60)
-        }else {
-            return CGSize(width: 0, height: 0)
+        
+        if (UIDevice.current.userInterfaceIdiom == .pad){
+            if collectionView == self.cvListing {
+                return CGSize(width: cvListing.frame.width - 8, height: 100)
+            }else if collectionView == self.cvCategary {
+                return CGSize(width: cvCategary.frame.width / 4, height: 100)
+            }else {
+                return CGSize(width: 0, height: 0)
+            }
+        }else
+        {
+            if collectionView == self.cvListing {
+                return CGSize(width: cvListing.frame.width - 8, height: 60)
+            }else if collectionView == self.cvCategary {
+                return CGSize(width: cvCategary.frame.width / 4, height: 60)
+            }else {
+                return CGSize(width: 0, height: 0)
+            }
         }
+        
+        
     }
     
     //MARK:-

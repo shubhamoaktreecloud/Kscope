@@ -231,7 +231,13 @@ class Theme1ListingViewController: UIViewController, UICollectionViewDelegate, U
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: cvListing.frame.width - 32, height: 150)
+                
+        if (UIDevice.current.userInterfaceIdiom == .pad){
+            return CGSize(width: cvListing.frame.width - 40, height: 220)
+        }else
+        {
+            return CGSize(width: cvListing.frame.width - 32, height: 150)
+        }
     }
   
     //MARK:-
