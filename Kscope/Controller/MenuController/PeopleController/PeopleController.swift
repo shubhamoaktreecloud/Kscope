@@ -8,6 +8,8 @@
 
 import UIKit
 import ProgressHUD
+import KRPullLoader
+import AnimatableReload
 
 struct PeopleJsonData : Codable {
     var persona_branding : personaBranding
@@ -32,7 +34,7 @@ struct people_count_based_on_role : Codable {
 }
 
 
-class PeopleController: UIViewController , UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class PeopleController: UIViewController , UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, KRPullLoadViewDelegate {
     
     //MARK:- Outlets
     
@@ -55,64 +57,133 @@ class PeopleController: UIViewController , UICollectionViewDelegate, UICollectio
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view
+        ProgressHUD.show("Loading...")
         SetUpObject()
-        getServiceCall()
+        getServiceCall(pageCount: 0)
+        
+        let refreshView = KRPullLoadView()
+        refreshView.delegate = self
+        cvListing.addPullLoadableView(refreshView, type: .loadMore)
+    }
+    
+    func pullLoadView(_ pullLoadView: KRPullLoadView, didChangeState state: KRPullLoaderState, viewType type: KRPullLoaderType) {
+        
+        if(type == .loadMore)
+        {
+            getServiceCall(pageCount: 1)
+        }
     }
       
-    func getServiceCall(){
+    func getServiceCall(pageCount : Int){
         let preferences = UserDefaults.standard
         
         let currentsfid = preferences.value(forKey: "current_sfid")
         
-        let url = URL(string: "https://digital-dev-api.herokuapp.com/api/v1/clients/accounts/\(currentsfid!)/people")
-        guard let requestUrl = url else { fatalError() }
-        // Create URL Request0016s000005DnR2AAK
-        var request = URLRequest(url: requestUrl)
-        request.setValue("application/json", forHTTPHeaderField: "Accept")
-        let currentToken = preferences.value(forKey: "token")
-        request.setValue((currentToken as! String), forHTTPHeaderField: "Authorization")
-        // Specify HTTP Method to use
-        request.httpMethod = "GET"
-        // Send HTTP Request
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            // Check if Error took place
-            if let error = error {
-                print("Error took place \(error)")
-                return
+        if(pageCount == 0)
+        {
+        
+            let url = URL(string: "https://digital-dev-api.herokuapp.com/api/v1/clients/accounts/\(currentsfid!)/people")
+            guard let requestUrl = url else { fatalError() }
+            // Create URL Request0016s000005DnR2AAK
+            var request = URLRequest(url: requestUrl)
+            request.setValue("application/json", forHTTPHeaderField: "Accept")
+            let currentToken = preferences.value(forKey: "token")
+            request.setValue((currentToken as! String), forHTTPHeaderField: "Authorization")
+            // Specify HTTP Method to use
+            request.httpMethod = "GET"
+            // Send HTTP Request
+            let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+                // Check if Error took place
+                if let error = error {
+                    print("Error took place \(error)")
+                    return
+                }
+                let decoder = JSONDecoder()
+                if let jsonPetitions = try? decoder.decode(PeopleJsonData.self, from: data!) {
+                 
+                    print(jsonPetitions)
+                   // self.arrCategaries = jsonPetitions.persona_branding.sub_tabs.Applicant
+                    self.arrTitle = jsonPetitions.all_members
+                    self.AccountsArr.removeAll()
+                  //  if(self.arrCategaries[0].subtab_name__c == "Applicant")
+    //                {
+    //                    guard let arrOne = self.arrCategaries[0].table_headers[0].column_name__c else { return  }
+    //                    guard let arrTwo = self.arrCategaries[0].table_headers[1].column_name__c else { return  }
+    //                    guard let arrThree = self.arrCategaries[0].table_headers[2].column_name__c else { return }
+    //                    guard let arrFour = self.arrCategaries[0].table_headers[3].column_name__c else { return }
+    //                    guard let arrFive = self.arrCategaries[0].table_headers[4].column_name__c else { return }
+    //                    guard let arrSix = self.arrCategaries[0].table_headers[5].column_name__c else { return }
+    //                    guard let arrSeven = self.arrCategaries[0].table_headers[6].column_name__c else { return }
+    //                    self.AccountsArr.append(arrOne)
+    //                    self.AccountsArr.append(arrTwo)
+    //                    self.AccountsArr.append(arrThree)
+    //                    self.AccountsArr.append(arrFour)
+    //                    self.AccountsArr.append(arrFive)
+    //                    self.AccountsArr.append(arrSix)
+    //                    self.AccountsArr.append(arrSeven)
+    //                }
+                }
+                DispatchQueue.main.async() {
+                ProgressHUD.dismiss()
+                AnimatableReload.reload(collectionView: self.cvListing, animationDirection: "down")
+               // self.cvCategary.reloadData()
+                //self.subCategoryCollectionView.reloadData()
+                }
             }
-            let decoder = JSONDecoder()
-            if let jsonPetitions = try? decoder.decode(PeopleJsonData.self, from: data!) {
-             
-                print(jsonPetitions)
-               // self.arrCategaries = jsonPetitions.persona_branding.sub_tabs.Applicant
-                self.arrTitle = jsonPetitions.all_members
-                self.AccountsArr.removeAll()
-              //  if(self.arrCategaries[0].subtab_name__c == "Applicant")
-//                {
-//                    guard let arrOne = self.arrCategaries[0].table_headers[0].column_name__c else { return  }
-//                    guard let arrTwo = self.arrCategaries[0].table_headers[1].column_name__c else { return  }
-//                    guard let arrThree = self.arrCategaries[0].table_headers[2].column_name__c else { return }
-//                    guard let arrFour = self.arrCategaries[0].table_headers[3].column_name__c else { return }
-//                    guard let arrFive = self.arrCategaries[0].table_headers[4].column_name__c else { return }
-//                    guard let arrSix = self.arrCategaries[0].table_headers[5].column_name__c else { return }
-//                    guard let arrSeven = self.arrCategaries[0].table_headers[6].column_name__c else { return }
-//                    self.AccountsArr.append(arrOne)
-//                    self.AccountsArr.append(arrTwo)
-//                    self.AccountsArr.append(arrThree)
-//                    self.AccountsArr.append(arrFour)
-//                    self.AccountsArr.append(arrFive)
-//                    self.AccountsArr.append(arrSix)
-//                    self.AccountsArr.append(arrSeven)
-//                }
+            task.resume()
+        }else{
+            
+            let url = URL(string: "https://digital-dev-api.herokuapp.com/api/v1/clients/accounts/\(currentsfid!)/people?page=2")
+            guard let requestUrl = url else { fatalError() }
+            // Create URL Request0016s000005DnR2AAK
+            var request = URLRequest(url: requestUrl)
+            request.setValue("application/json", forHTTPHeaderField: "Accept")
+            let currentToken = preferences.value(forKey: "token")
+            request.setValue((currentToken as! String), forHTTPHeaderField: "Authorization")
+            // Specify HTTP Method to use
+            request.httpMethod = "GET"
+            // Send HTTP Request
+            let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+                // Check if Error took place
+                if let error = error {
+                    print("Error took place \(error)")
+                    return
+                }
+                let decoder = JSONDecoder()
+                if let jsonPetitions = try? decoder.decode(PeopleJsonData.self, from: data!) {
+                 
+                    print(jsonPetitions)
+                   // self.arrCategaries = jsonPetitions.persona_branding.sub_tabs.Applicant
+                    let tempArr = jsonPetitions.all_members
+                    self.arrTitle.append(contentsOf: tempArr)
+                    self.AccountsArr.removeAll()
+                  //  if(self.arrCategaries[0].subtab_name__c == "Applicant")
+    //                {
+    //                    guard let arrOne = self.arrCategaries[0].table_headers[0].column_name__c else { return  }
+    //                    guard let arrTwo = self.arrCategaries[0].table_headers[1].column_name__c else { return  }
+    //                    guard let arrThree = self.arrCategaries[0].table_headers[2].column_name__c else { return }
+    //                    guard let arrFour = self.arrCategaries[0].table_headers[3].column_name__c else { return }
+    //                    guard let arrFive = self.arrCategaries[0].table_headers[4].column_name__c else { return }
+    //                    guard let arrSix = self.arrCategaries[0].table_headers[5].column_name__c else { return }
+    //                    guard let arrSeven = self.arrCategaries[0].table_headers[6].column_name__c else { return }
+    //                    self.AccountsArr.append(arrOne)
+    //                    self.AccountsArr.append(arrTwo)
+    //                    self.AccountsArr.append(arrThree)
+    //                    self.AccountsArr.append(arrFour)
+    //                    self.AccountsArr.append(arrFive)
+    //                    self.AccountsArr.append(arrSix)
+    //                    self.AccountsArr.append(arrSeven)
+    //                }
+                }
+                DispatchQueue.main.async() {
+                ProgressHUD.dismiss()
+                AnimatableReload.reload(collectionView: self.cvListing, animationDirection: "down")
+               // self.cvCategary.reloadData()
+                //self.subCategoryCollectionView.reloadData()
+                }
             }
-            DispatchQueue.main.async() {
-            ProgressHUD.dismiss()
-            self.cvListing.reloadData()
-           // self.cvCategary.reloadData()
-            //self.subCategoryCollectionView.reloadData()
-            }
+            task.resume()
         }
-        task.resume()
     }
     //MARK:-
     //MARK:- SetUpObject Methods

@@ -9,6 +9,7 @@
 import UIKit
 import ProgressHUD
 import KRPullLoader
+import AnimatableReload
 
 struct Accounts :Codable {
     var id: Int?
@@ -87,9 +88,10 @@ class Theme2ListingViewController: UIViewController , UICollectionViewDelegate, 
     
     //MARK: Delegate of loadmore
     func pullLoadView(_ pullLoadView: KRPullLoadView, didChangeState state: KRPullLoaderState, viewType type: KRPullLoaderType) {
-        
-        getServiceCall(pageCount: 1)
-        
+        if(type == .loadMore)
+        {
+            getServiceCall(pageCount: 1)
+        }
     }
     
     func getServiceCall(pageCount: Int){
@@ -145,7 +147,9 @@ class Theme2ListingViewController: UIViewController , UICollectionViewDelegate, 
                 }
                 DispatchQueue.main.async() {
                 ProgressHUD.dismiss()
-                self.cvListing.reloadData()
+                AnimatableReload.reload(collectionView: self.cvListing, animationDirection: "down")
+
+                //self.cvListing.reloadData()
                 self.cvCategary.reloadData()
                 self.subCategoryCollectionView.reloadData()
                 }
@@ -198,7 +202,7 @@ class Theme2ListingViewController: UIViewController , UICollectionViewDelegate, 
                 }
                 DispatchQueue.main.async() {
                 ProgressHUD.dismiss()
-                self.cvListing.reloadData()
+                AnimatableReload.reload(collectionView: self.cvListing, animationDirection: "down")
                 self.cvCategary.reloadData()
                 self.subCategoryCollectionView.reloadData()
                 }

@@ -12,9 +12,7 @@ target 'Kscope' do
   pod 'MBProgressHUD'
   pod 'Toast-Swift'
   pod "KRPullLoader"
-
-
-
+  pod "AnimatableReload"
 
   # Pods for Kscope
 
