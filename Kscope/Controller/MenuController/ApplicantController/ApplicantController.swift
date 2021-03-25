@@ -51,7 +51,6 @@ class ApplicantController: UIViewController , UICollectionViewDelegate, UICollec
         {
             getServiceCall(pageCount: 1)
         }
-        
     }
 
     func getServiceCall(pageCount: Int){
@@ -104,7 +103,6 @@ class ApplicantController: UIViewController , UICollectionViewDelegate, UICollec
                 DispatchQueue.main.async() {
                 ProgressHUD.dismiss()
                 AnimatableReload.reload(collectionView: self.cvListing, animationDirection: "down")
-
 //                self.cvListing.reloadData()
                 self.cvCategary.reloadData()
                 //self.subCategoryCollectionView.reloadData()
@@ -164,8 +162,6 @@ class ApplicantController: UIViewController , UICollectionViewDelegate, UICollec
             }
             task.resume()
         }
-        
-        
     }
     //MARK:-
     //MARK:- SetUpObject Methods
